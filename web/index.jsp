@@ -11,6 +11,8 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+    <form action="dreamplume" method="post">
+        <input type="submit" value="点击一下">
+    </form>
   </body>
 </html>
