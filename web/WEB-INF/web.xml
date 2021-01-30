@@ -9,6 +9,24 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>IntroductionServlet</servlet-name>
-        <url-pattern>/dreamplume</url-pattern>
+        <url-pattern>/introduction</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ExampleServlet</servlet-name>
+        <servlet-class>cn.dreamplume.servlet.ExampleServelt</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ExampleServlet</servlet-name>
+        <url-pattern>/example</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FormData</servlet-name>
+        <servlet-class>cn.dreamplume.servlet.FormData</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FormData</servlet-name>
+        <url-pattern>/formData</url-pattern>
     </servlet-mapping>
 </web-app>
