@@ -7,6 +7,13 @@
         <element id="directory" name="classes">
           <element id="module-output" name="DynamicJavaweb" />
         </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/src/cn/dreamplume/lib/c3p0-0.9.1.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/src/cn/dreamplume/lib/commons-dbcp-1.4.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/src/cn/dreamplume/lib/commons-dbutils-1.4.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/src/cn/dreamplume/lib/commons-pool-1.5.6.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/src/cn/dreamplume/lib/mysql-connector-java-5.1.39-bin.jar" />
+        </element>
       </element>
     </root>
   </artifact>

@@ -15,15 +15,14 @@
     <form action="introduction" method="post">
         <input type="submit" value="点击一下">
     </form>
+
     <form action="example" method="post">
         <input type="submit" value="点击一下">
     </form>
 
-    <%--使用 URL 的 get() 方法的实例--%>
-    <form action="formData" method="post">
-        <input type="text" name="username">
-        <input type="text" name="password">
+    <form action="example2" method="get">
         <input type="submit" value="提交">
     </form>
+
   </body>
 </html>
