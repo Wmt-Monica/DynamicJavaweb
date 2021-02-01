@@ -24,5 +24,9 @@
         <input type="submit" value="提交">
     </form>
 
+    <form action="servletContext" method="post">
+      <input type="submit" value="获取 a b c.txt 的绝对路径">
+    </form>
+
   </body>
 </html>

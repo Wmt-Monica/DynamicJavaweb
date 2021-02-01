@@ -38,4 +38,18 @@
         <servlet-name>FormVerification</servlet-name>
         <url-pattern>/formVerification</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ServletContext</servlet-name>
+        <servlet-class>cn.dreamplume.servlet.ServletContextTest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletContext</servlet-name>
+        <url-pattern>/servletContext</url-pattern>
+    </servlet-mapping>
+    <!--  ServletContext 对象在获取初始化的数据的数据对象  -->
+    <context-param>
+        <param-name>url</param-name>
+        <param-value>jdbc:mysql://localhost:3306/formdata</param-value>
+    </context-param>
 </web-app>
