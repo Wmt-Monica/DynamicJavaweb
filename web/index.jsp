@@ -28,5 +28,9 @@
       <input type="submit" value="获取 a b c.txt 的绝对路径">
     </form>
 
+    <form action="header" method="post">
+        <input type="submit" value="response">
+    </form>
+
   </body>
 </html>

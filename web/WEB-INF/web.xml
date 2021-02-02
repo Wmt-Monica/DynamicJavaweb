@@ -52,4 +52,13 @@
         <param-name>url</param-name>
         <param-value>jdbc:mysql://localhost:3306/formdata</param-value>
     </context-param>
+
+    <servlet>
+        <servlet-name>Header</servlet-name>
+        <servlet-class>cn.dreamplume.response.Header</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Header</servlet-name>
+        <url-pattern>/header</url-pattern>
+    </servlet-mapping>
 </web-app>
