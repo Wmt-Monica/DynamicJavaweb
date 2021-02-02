@@ -61,4 +61,13 @@
         <servlet-name>Header</servlet-name>
         <url-pattern>/header</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ImgDownload</servlet-name>
+        <servlet-class>cn.dreamplume.response.ImgDownload</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ImgDownload</servlet-name>
+        <url-pattern>/imgDownload</url-pattern>
+    </servlet-mapping>
 </web-app>

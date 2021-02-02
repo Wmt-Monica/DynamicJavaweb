@@ -29,8 +29,7 @@
     </form>
 
     <form action="header" method="post">
-        <input type="submit" value="response">
+        <input type="submit" value="setHeader">
     </form>
-
   </body>
 </html>
