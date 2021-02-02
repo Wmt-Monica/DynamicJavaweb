@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定时跳转页面</title>
+</head>
+<script type="text/javascript">
+    window.onload = function () {
+        var second = document.getElementById("times");  // 获取 id = times 的对象
+        var time = second.innerText;  // 获取 second 对象的文本内容
+        var timer = setInterval(function () {  // 创建定时器
+            // 创建定时器的执行内容
+            second.innerHTML = time;
+            time --;
+            if (time == 0) {  // 当倒计时结束之后，清除定时器，并修改 location.href 属性值进行跳转页面
+                clearInterval(timer);
+                location.href = "http://www.baidu.com";
+            }
+        }, 1000);  // 设置为每隔 1 秒刷新一次
+    }
+</script>
+<body>
+    还有<span id="times">5</span>秒就跳转页面
+</body>
+</html>
