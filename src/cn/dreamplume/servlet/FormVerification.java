@@ -21,9 +21,10 @@ import java.sql.*;
 @WebServlet(name = "FormVerification")
 public class FormVerification extends HttpServlet {
 
-    @Test
-    public void test() {
-
+    @Override
+    public void init() throws ServletException {
+        int userCount = 0;
+        this.getServletContext().setAttribute("userCount", userCount);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -72,7 +73,11 @@ public class FormVerification extends HttpServlet {
 
             // 7):根据登录验证返回相应的登录提示信息
             if (flag) {
-                response.getWriter().write("成功登录");
+                int userCount = (int)this.getServletContext().getAttribute("userCount");
+                userCount ++;
+                this.getServletContext().setAttribute("userCount", userCount);
+
+                response.getWriter().write("第"+userCount+"用户成功登录");
                 System.out.println("成功登录");
             }else {
                 response.getWriter().write("用户名或密码错误，登录失败");
