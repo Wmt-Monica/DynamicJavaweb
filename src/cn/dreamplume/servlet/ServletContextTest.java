@@ -2,8 +2,6 @@ package cn.dreamplume.servlet;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +13,7 @@ import java.io.IOException;
  * @Description TODO
  * @Date 2021/2/1 9:28
  * @Created by 翊
+ * 一个 web 项目会自动生成一个 servletContext 对象
  */
 @WebServlet(name = "ServletContext")
 public class ServletContextTest extends HttpServlet {
@@ -35,7 +34,14 @@ public class ServletContextTest extends HttpServlet {
         response.getWriter().write("b.txt : "+realPath_B+"<br>");
         // 在项目 src 下的文件姐可以从 web 项目的 classes 目录下使用 getRealPath() 方法找到对应的绝对路径
         response.getWriter().write("c.txt : "+realPath_C+"<br>");
-        // 当文件不在 web 目录以下就wu
+        // 当文件不在 web 目录以下就无法通过使用 ServletContext 对象获取该文件的绝对路径
+
+        // 域对象----向 ServletContext 对象使用 setAttribute() 方法存放数据
+        servletContext.setAttribute("name","石燔傻逼");
+
+        // 域对象----从 servletContext 对象中取数据
+        String nameValue = (String) this.getServletContext().getAttribute("name");
+        response.getWriter().write("域对象中 name 的 value = "+nameValue);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
