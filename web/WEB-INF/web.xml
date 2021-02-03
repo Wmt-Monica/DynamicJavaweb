@@ -70,4 +70,13 @@
         <servlet-name>ImgDownload</servlet-name>
         <url-pattern>/imgDownload</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>DownloadFile</servlet-name>
+        <servlet-class>cn.dreamplume.response.DownloadFile</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DownloadFile</servlet-name>
+        <url-pattern>/downloadFile</url-pattern>
+    </servlet-mapping>
 </web-app>

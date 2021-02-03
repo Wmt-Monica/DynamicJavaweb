@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>下载文件</title>
+</head>
+<body>
+    <h1>使用 a 标签直接指向服务器上的资源</h1>
+    <a href="download/love.jpg">love.jpg</a><br>
+    <a href="download/music.mp3">music.mp3</a><br>
+    <a href="download/toShiFan.txt">toShiFan.txt</a><br>
+    <a href="download/view.flv">view.flv</a><br>
+    <h1>使用服务器端编码的方式实现文件下载</h1>
+    <!--  此处的h href 的 url 写入的是 java 文件中 url-pattern 的字符串 ?后面写入的是获取文件名称的参数名称和对应的 value 值 -->
+    <a href="downloadFile?filename=love.jpg">love.jpg</a><br>
+    <a href="downloadFile?filename=music.mp3">music.mp3</a><br>
+    <a href="downloadFile?filename=toShiFan.txt">toShiFan.txt</a><br>
+    <a href="downloadFile?filename=view.flv">view.flv</a><br>
+</body>
+</html>
