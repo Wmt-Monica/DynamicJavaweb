@@ -42,25 +42,29 @@ public class DownloadFile extends HttpServlet {
         String agent = request.getHeader("User-Agent");
 
         // 根据浏览器的 User_Agent 的字符串内容判断执行浏览器的类型
+        // 由于避免代码中的编码与浏览器中的编码有冲突，此处另外创建 filenameCode 字符串对象
+        String filenameCode = "";
+        // 根据不同的浏览器对象对 filenameCode 字符串设置不同的编码
         if (agent.contains("MSIE")) {
             // IE浏览器
-            filename = URLEncoder.encode(filename, "utf-8");
-            filename = filename.replace("+", " ");
+            filenameCode = URLEncoder.encode(filename, "utf-8");
+            filenameCode = filename.replace("+", " ");
         } else if (agent.contains("Firefox")) {
             // 火狐浏览器
             BASE64Encoder base64Encoder = new BASE64Encoder();
-            filename = "=?utf-8?B?"
+            filenameCode = "=?utf-8?B?"
                     + base64Encoder.encode(filename.getBytes("utf-8")) + "?=";
         } else {
             // 其它浏览器
-            filename = URLEncoder.encode(filename, "utf-8");
+            filenameCode = URLEncoder.encode(filename, "utf-8");
         }
 
         // 获取要下载文件的文件了类型-----客户端通过文件的 MIME 类型去区分类型
         response.setContentType(this.getServletContext().getMimeType(filename));
 
         // 告诉客户端文件不是直接解析，而是以附件形式打开（下载）
-        response.setHeader("Content-Disposition","attachment;fileName"+filename);
+        // 此处是浏览器来解析文件名，故这里传入的参数使用之前根据不同浏览器编码创建的 filenameCode 文件名字符串对象
+        response.setHeader("Content-Disposition","attachment;fileName"+filenameCode);
 
         // 使用 ServletContext 对象获取文件的绝对路径
         String path = this.getServletContext().getRealPath("download/"+filename);
