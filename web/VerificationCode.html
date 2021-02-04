@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>验证码</title>
+</head>
+<script type="text/javascript">
+    function ImagChange(obj) {
+        obj.src = "verificationCode?time"+new Date().getTime();  // 在不同时间可以点击验证码图片刷新验证码的方法
+    }
+</script>
+<body>
+    <form>
+        用户名：<input type="text" name="userName"><br>
+        密&nbsp;&nbsp;&nbsp;码：<input type="password" name="password"><br>
+        验证码：<input type="text" name="verificationCode"><img onclick="ImagChange(this)" src="verificationCode"><br>
+        <input type="submit" value="提交">
+    </form>
+</body>
+</html>

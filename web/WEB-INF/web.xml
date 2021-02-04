@@ -88,4 +88,13 @@
         <servlet-name>Error</servlet-name>
         <url-pattern>/error</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>VerificationCode</servlet-name>
+        <servlet-class>cn.dreamplume.response.VerificationCode</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VerificationCode</servlet-name>
+        <url-pattern>/verificationCode</url-pattern>
+    </servlet-mapping>
 </web-app>
