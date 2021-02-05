@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLDecoder;
 
 /**
  * @Classname ${NAME}
@@ -58,7 +59,8 @@ public class RequestMethodTest extends HttpServlet {
         PrintWriter writer = response.getWriter();
         writer.write(methodName+"<br>");
         writer.write(requestURI+"<br>");
-        writer.write(queryString+"<br>");
+        // 为了避免参数值在页面显示乱码。使用  URLDecoder.decode(参数字符串,"utf-8")编码转换
+        writer.write(URLDecoder.decode(queryString,"utf-8")+"<br>");
         writer.write(protocol+"<br>");
         writer.write(ContextPath+"<br>");
         writer.write(servletPath+"<br>");
