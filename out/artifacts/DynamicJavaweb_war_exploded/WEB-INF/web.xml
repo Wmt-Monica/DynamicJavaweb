@@ -124,4 +124,13 @@
         <servlet-name>PreventTheft</servlet-name>
         <url-pattern>/preventTheft</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>Parameter</servlet-name>
+        <servlet-class>cn.dreamplume.request.Parameter</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Parameter</servlet-name>
+        <url-pattern>/parameter</url-pattern>
+    </servlet-mapping>
 </web-app>
