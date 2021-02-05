@@ -97,4 +97,13 @@
         <servlet-name>VerificationCode</servlet-name>
         <url-pattern>/verificationCode</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RequestMethodTest</servlet-name>
+        <servlet-class>cn.dreamplume.request.RequestMethodTest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RequestMethodTest</servlet-name>
+        <url-pattern>/requestMethodTest</url-pattern>
+    </servlet-mapping>
 </web-app>
