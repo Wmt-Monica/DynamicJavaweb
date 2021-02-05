@@ -133,4 +133,31 @@
         <servlet-name>Parameter</servlet-name>
         <url-pattern>/parameter</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Forward</servlet-name>
+        <servlet-class>cn.dreamplume.request.Forward</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Forward</servlet-name>
+        <url-pattern>/forward</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Forward2</servlet-name>
+        <servlet-class>cn.dreamplume.request.Forward2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Forward2</servlet-name>
+        <url-pattern>/forward2</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Forward3</servlet-name>
+        <servlet-class>cn.dreamplume.request.Forward3</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Forward3</servlet-name>
+        <url-pattern>/forward3</url-pattern>
+    </servlet-mapping>
 </web-app>
