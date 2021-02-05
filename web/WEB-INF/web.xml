@@ -106,4 +106,13 @@
         <servlet-name>RequestMethodTest</servlet-name>
         <url-pattern>/requestMethodTest</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>HeaderServlet</servlet-name>
+        <servlet-class>cn.dreamplume.request.HeaderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HeaderServlet</servlet-name>
+        <url-pattern>/headerServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
