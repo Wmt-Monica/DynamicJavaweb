@@ -160,4 +160,22 @@
         <servlet-name>Forward3</servlet-name>
         <url-pattern>/forward3</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UserFormRegister</servlet-name>
+        <servlet-class>cn.dreamplume.request.UserFormRegister</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserFormRegister</servlet-name>
+        <url-pattern>/userFormRegister</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UserFormSignIn</servlet-name>
+        <servlet-class>cn.dreamplume.request.UserFormSignIn</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserFormSignIn</servlet-name>
+        <url-pattern>/userFormSignIn</url-pattern>
+    </servlet-mapping>
 </web-app>

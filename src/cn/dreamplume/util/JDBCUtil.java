@@ -14,7 +14,17 @@ import java.sql.SQLException;
 public class JDBCUtil {
 
     // 创建 ComboPooledDataSource 数据库连接池对象
-    public static ComboPooledDataSource source = new ComboPooledDataSource(); // 这里不传入参数这里使用默认的数据库
+    public static ComboPooledDataSource source; // 这里不传入参数这里使用默认的数据库
+
+    // 是用无参的工具类构造器是默认使用默认的数据库
+    public JDBCUtil() {
+        source = new ComboPooledDataSource();
+    }
+
+    // 使用有参的工具类构造方法使用指定的数据库
+    public JDBCUtil(String databaseName) {
+        source = new ComboPooledDataSource(databaseName);
+    }
 
     // 创建 getConnection() 方法来获取 Connection 连接对象
     public Connection getConnection() {
