@@ -178,4 +178,22 @@
         <servlet-name>UserFormSignIn</servlet-name>
         <url-pattern>/userFormSignIn</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CookieTest</servlet-name>
+        <servlet-class>cn.dreamplume.session_cookie.CookieTest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CookieTest</servlet-name>
+        <url-pattern>/cookieTest</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RemoveCookie</servlet-name>
+        <servlet-class>cn.dreamplume.session_cookie.RemoveCookie</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RemoveCookie</servlet-name>
+        <url-pattern>/removeCookie</url-pattern>
+    </servlet-mapping>
 </web-app>
