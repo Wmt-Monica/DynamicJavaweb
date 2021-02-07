@@ -214,4 +214,17 @@
         <servlet-name>GetCookieNowTime</servlet-name>
         <url-pattern>/getCookieNewTime</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SessionTest</servlet-name>
+        <servlet-class>cn.dreamplume.session_cookie.SessionTest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SessionTest</servlet-name>
+        <url-pattern>/sessionTest</url-pattern>
+    </servlet-mapping>
+    <!--  session-timeout 中填写的是 session 对象的生命周期时间（单位：分）  -->
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
 </web-app>
