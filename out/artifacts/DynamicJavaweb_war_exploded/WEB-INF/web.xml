@@ -196,4 +196,22 @@
         <servlet-name>RemoveCookie</servlet-name>
         <url-pattern>/removeCookie</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetCookie</servlet-name>
+        <servlet-class>cn.dreamplume.session_cookie.GetCookie</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetCookie</servlet-name>
+        <url-pattern>/getCookie</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetCookieNowTime</servlet-name>
+        <servlet-class>cn.dreamplume.session_cookie.GetCookieNowTime</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetCookieNowTime</servlet-name>
+        <url-pattern>/getCookieNewTime</url-pattern>
+    </servlet-mapping>
 </web-app>
