@@ -227,4 +227,13 @@
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
+
+    <servlet>
+        <servlet-name>JSESSIONID</servlet-name>
+        <servlet-class>cn.dreamplume.session_cookie.JSESSIONID</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>JSESSIONID</servlet-name>
+        <url-pattern>/JSESSIONID</url-pattern>
+    </servlet-mapping>
 </web-app>
