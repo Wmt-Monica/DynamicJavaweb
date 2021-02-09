@@ -236,4 +236,13 @@
         <servlet-name>JSESSIONID</servlet-name>
         <url-pattern>/JSESSIONID</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>VerificationCodeSession</servlet-name>
+        <servlet-class>cn.dreamplume.session_cookie.VerificationCodeSession</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VerificationCodeSession</servlet-name>
+        <url-pattern>/verificationCodeSession</url-pattern>
+    </servlet-mapping>
 </web-app>

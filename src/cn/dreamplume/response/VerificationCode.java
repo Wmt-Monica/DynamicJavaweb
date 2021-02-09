@@ -8,9 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -32,7 +30,10 @@ public class VerificationCode extends HttpServlet {
         // web工程中读取 文件，必须使用绝对磁盘路径
         String path = getServletContext().getRealPath("/WEB-INF/new_words.txt");
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(path));
+            // 创建 BufferedReader 读取验证码中的数据中中文乱码的处理
+            // 首先创建 InoutStreamReader 对象，第二个参数写入 "UTF-8"
+            InputStreamReader input= new InputStreamReader(new FileInputStream(path),"UTF-8");
+            BufferedReader reader = new BufferedReader(input);
             String line;
             while ((line = reader.readLine()) != null) {
                 words.add(line);
@@ -49,6 +50,9 @@ public class VerificationCode extends HttpServlet {
         // response.setHeader("Cache-Control", "no-cache");
         // response.setHeader("Pragma", "no-cache");
         // response.setDateHeader("Expires", -1);
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=utf-8");
 
         int width = 120;
         int height = 30;
@@ -75,6 +79,9 @@ public class VerificationCode extends HttpServlet {
         Random random = new Random();// 生成随机数
         int index = random.nextInt(words.size());
         String word = words.get(index);// 获得成语
+        System.out.println("------------------------------");
+        System.out.println("word = "+word);
+        System.out.println("------------------------------");
 
         // 定义x坐标
         int x = 10;
