@@ -32,15 +32,6 @@
         <jarDirectory url="file://$MODULE_DIR$/web/WEB-INF/lib" recursive="false" />
       </library>
     </orderEntry>
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/src/cn/dreamplume/lib/c3p0-0.9.1.2.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
     <orderEntry type="module-library">
       <library name="JUnit4">
         <CLASSES>
@@ -102,6 +93,15 @@
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/src/cn/dreamplume/lib/commons-logging-1.1.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/src/cn/dreamplume/lib/c3p0-0.9.1.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

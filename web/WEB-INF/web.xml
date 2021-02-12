@@ -245,4 +245,14 @@
         <servlet-name>VerificationCodeSession</servlet-name>
         <url-pattern>/verificationCodeSession</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>JspProject</servlet-name>
+        <servlet-class>cn.dreamplume.jsp.JspProject</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>JspProject</servlet-name>
+        <url-pattern>/jspProject</url-pattern>
+    </servlet-mapping>
+
 </web-app>
