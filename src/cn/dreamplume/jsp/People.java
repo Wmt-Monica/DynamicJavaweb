@@ -13,6 +13,13 @@ public class People {
     private String position;  // 任务职业
     private String picture;  // 人物头像路径
 
+    public People() {}
+
+    public People(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public String getId() {
         return id;
     }
