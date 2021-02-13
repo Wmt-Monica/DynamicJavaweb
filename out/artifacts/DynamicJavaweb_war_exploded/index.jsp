@@ -31,5 +31,7 @@
     <form action="header" method="post">
         <input type="submit" value="setHeader">
     </form>
+
+    <a href="/jspProject">人物介绍清单</a>
   </body>
 </html>
