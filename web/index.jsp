@@ -32,6 +32,8 @@
         <input type="submit" value="setHeader">
     </form>
 
-    <a href="/jspProject">人物介绍清单</a>
+    <a href="/jspProject">人物介绍清单</a><br>
+
+    <a href="peopleService">JavaEE三层架构和MVC结合使用的人物介绍清单</a><br>
   </body>
 </html>

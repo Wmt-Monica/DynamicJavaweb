@@ -255,4 +255,13 @@
         <url-pattern>/jspProject</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>PeopleService</servlet-name>
+        <servlet-class>cn.dreamplume.MVC.service.PeopleService</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PeopleService</servlet-name>
+        <url-pattern>/peopleService</url-pattern>
+    </servlet-mapping>
+
 </web-app>
