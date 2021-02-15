@@ -42,7 +42,6 @@
     }
 </style>
 <body>
-
     <%
         List<People> peopleList = (List<People>) request.getAttribute("peopleList");
     %>
