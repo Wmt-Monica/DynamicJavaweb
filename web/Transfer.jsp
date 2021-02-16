@@ -1,9 +1,4 @@
-<%@ page import="java.util.List" %>
-<%@ page import="cn.dreamplume.affair.TransferPeople" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="java.io.PrintWriter" %>
-<%@ page import="java.sql.PreparedStatement" %>
-<%@ page import="java.net.URLDecoder" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: 翊
   Date: 2021/2/16
