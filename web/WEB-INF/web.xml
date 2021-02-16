@@ -264,4 +264,13 @@
         <url-pattern>/peopleService</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Transfer</servlet-name>
+        <servlet-class>cn.dreamplume.affair.Transfer</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Transfer</servlet-name>
+        <url-pattern>/transfer</url-pattern>
+    </servlet-mapping>
+
 </web-app>

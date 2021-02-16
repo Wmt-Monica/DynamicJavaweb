@@ -35,5 +35,13 @@
     <a href="/jspProject">人物介绍清单</a><br>
 
     <a href="peopleService">JavaEE三层架构和MVC结合使用的人物介绍清单</a><br>
+
+    <hr>
+    <form method="post" action="transfer">
+      转出账户：<input type="text" name="Transfer_out_account" ><br>
+      转入账户：<input type="text" name="Transfer_to_account" ><br>
+      转出金额：<input type="text" name="amount_of_money" ><br>
+      <input type="submit" value="提交">
+    </form><br>
   </body>
 </html>
