@@ -22,5 +22,10 @@
             转账失败
         </h1>
     </c:if>
+    <h3>银行用户及其余额</h3>
+    <c:forEach items="${requestScope.peopleList}" var="people">
+        <span>用户名：${people.userName}</span>
+        <span>余额：${people.balance}</span><br>
+    </c:forEach>
 </body>
 </html>
