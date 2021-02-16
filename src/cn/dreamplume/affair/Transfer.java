@@ -103,7 +103,6 @@ public class Transfer extends HttpServlet {
                 e.printStackTrace();
             }
         }
-
         //  将是否转账成功的表示布尔变量传入 request 对象中去
         request.setAttribute("flag", flag);
 
@@ -115,6 +114,8 @@ public class Transfer extends HttpServlet {
 
         // 实行转发
         dispatcher.forward(request, response);
+
+
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
