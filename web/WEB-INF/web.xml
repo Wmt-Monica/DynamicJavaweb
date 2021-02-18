@@ -273,4 +273,13 @@
         <url-pattern>/transfer</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>JudgeLogin</servlet-name>
+        <servlet-class>cn.dreamplume.project.shopping.service.JudgeLogin</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>JudgeLogin</servlet-name>
+        <url-pattern>/judgeLogin</url-pattern>
+    </servlet-mapping>
+
 </web-app>
