@@ -59,17 +59,15 @@
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a _href="t_studentgradestatic.html">
+                            <a _href="sales_statistics.jsp">
                                 <i class="iconfont">&#xe6a7;</i>
                                 <cite>商品销量统计</cite>
-
                             </a>
                         </li >
                         <li>
                             <a _href="t_stugradelist.html">
                                 <i class="iconfont">&#xe6a7;</i>
                                 <cite>商品销量详情</cite>
-
                             </a>
                         </li>
 

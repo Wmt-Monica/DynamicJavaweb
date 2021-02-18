@@ -1,9 +1,12 @@
 package cn.dreamplume.project.shopping.dao;
 
+import cn.dreamplume.project.shopping.domain.ShoppingObject;
 import cn.dreamplume.project.shopping.util.JDBCUtil;
-import org.junit.Test;
 
+import java.lang.reflect.Field;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Classname ConnectionJDBC
@@ -12,12 +15,6 @@ import java.sql.*;
  * @Created by 翊
  */
 public class ConnectionJDBC {
-    @Test
-    public void test() throws SQLException {
-        Boolean f = judgeLogin("王梦婷","12345678","管理员");
-        System.out.println(f);
-    }
-
     Connection conn;  // 连接对象
 
     public ConnectionJDBC() {
@@ -45,6 +42,46 @@ public class ConnectionJDBC {
         if (userPassword.equals(password) && userType.equals(type)) {
             return true;
         }
+        resultSet.close();
+        pre.close();
         return false;
+    }
+
+    /**
+     * 获取数据库中商品表中所有商品对象的 List 集合
+     * @return 返回商品 List 集合
+     */
+    public List<ShoppingObject> getShoppingObjects() throws SQLException, NoSuchFieldException, IllegalAccessException {
+        String sql = "select * from commodity";
+        PreparedStatement pre = conn.prepareStatement(sql);
+        ResultSet resultSet = pre.executeQuery();
+        ResultSetMetaData metaData = resultSet.getMetaData();
+        int colCount = metaData.getColumnCount();
+        List<ShoppingObject> shoppingObjectList = new ArrayList<>();
+        while (resultSet.next()) {
+            ShoppingObject shopObj = new ShoppingObject();
+            for (int i = 1; i <= colCount; i ++) {
+                Object colValue = resultSet.getObject(i);
+                String colName = metaData.getColumnName(i);
+                Field field = ShoppingObject.class.getDeclaredField(colName);
+                field.setAccessible(true);
+                field.set(shopObj, colValue);
+            }
+            shoppingObjectList.add(shopObj);
+        }
+        resultSet.close();
+        pre.close();
+        return shoppingObjectList;
+    }
+
+    /**
+     * 在数据库中删除指定ID的商品
+     * @param shopObjectID 待删除的商品ID编号
+     */
+    public void deleteShopObject(String shopObjectID) throws SQLException {
+        String sql = "delete from commodity where id = "+shopObjectID;
+        PreparedStatement pre = conn.prepareStatement(sql);
+        pre.execute();
+        pre.close();
     }
 }

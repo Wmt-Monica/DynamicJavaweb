@@ -43,5 +43,10 @@
       转出金额：<input type="text" name="amount_of_money" ><br>
       <input type="submit" value="提交">
     </form><br>
+
+  <form action="shopDelete" method="get">
+    ID：<input type="text" name="deleteShopID">
+    <input type="submit" value="提交">
+  </form>
   </body>
 </html>

@@ -282,4 +282,12 @@
         <url-pattern>/judgeLogin</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ShopDelete</servlet-name>
+        <servlet-class>cn.dreamplume.project.shopping.service.ShopDelete</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShopDelete</servlet-name>
+        <url-pattern>/shopDelete</url-pattern>
+    </servlet-mapping>
 </web-app>
