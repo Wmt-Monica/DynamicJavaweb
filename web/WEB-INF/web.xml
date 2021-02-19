@@ -290,4 +290,13 @@
         <servlet-name>ShopDelete</servlet-name>
         <url-pattern>/shopDelete</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ShopEdit</servlet-name>
+        <servlet-class>cn.dreamplume.project.shopping.service.ShopEdit</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShopEdit</servlet-name>
+        <url-pattern>/shopEdit</url-pattern>
+    </servlet-mapping>
 </web-app>

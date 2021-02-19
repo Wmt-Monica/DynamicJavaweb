@@ -92,7 +92,7 @@
                                 ${obj.introduce}
                         </td>
                         <td class="td-manage shopObj">
-                            <a title="编辑"  onclick="editObj(this,'stu_id')" href="javascript:;">
+                            <a title="编辑"  onclick="editObj(this,${obj.id})" href="javascript:;">
                                 <span>编辑</span><i class="layui-icon">&#xe642;</i>
                             </a>
                             <a title="删除" href="shopDelete?deleteShopID=${obj.id}" id="delete">
@@ -117,7 +117,8 @@
                 shadeClose: true,
                 maxmin: true,
                 //跳出相对路劲,指定显示的页面路径
-                content: 'edit.html',
+                content: 'edit.jsp?deleteID='+getid,
+                // content : '',
                 end: function(){
                     // 如果是通过单击关闭按钮关闭弹出层，父画面没有此表单
                     if($("#subform").length === 1){
