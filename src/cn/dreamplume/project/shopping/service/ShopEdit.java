@@ -2,6 +2,7 @@ package cn.dreamplume.project.shopping.service;
 
 import cn.dreamplume.project.shopping.util.JDBCUtil;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -50,6 +51,9 @@ public class ShopEdit extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        // 转发
+        RequestDispatcher dispatcher = request.getRequestDispatcher("EditSuccess.html");
+        dispatcher.forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

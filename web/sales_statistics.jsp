@@ -28,14 +28,6 @@
     <script src="js/echarts.min.js"></script>
     <title>商品销量统计</title>
 </head>
-<%--<script>--%>
-<%--    // 删除数据后页面重新回归后刷新--%>
-<%--    $(function(){--%>
-<%--        location.href="shopDelete";--%>
-<%--        location.reload();--%>
-<%--    })--%>
-
-<%--</script>--%>
 <%
     List<ShoppingObject> shoppingObjectList = new ConnectionJDBC().getShoppingObjects();
     request.setAttribute("shoppingObjectList", shoppingObjectList);
@@ -50,6 +42,23 @@
                 </button>
             </form>
         </div>
+        <script>
+            function refreshCommodity () {
+                window.location.reload();
+            }
+        </script>
+        <style>
+            .refresh {
+                float: right;
+                width: 50px;
+                height: 30px;
+                color: white;
+            }
+            .shopObj span {
+                cursor: pointer;
+            }
+        </style>
+        <input type="button" value="刷新" onclick="refreshCommodity()" class="refresh" style="background-color: #009688" >
         <hr>
         <table class="layui-table">
             <thead>
@@ -70,34 +79,34 @@
                         <td>
                                 ${obj.id}
                         </td>
-                        <td class="shopObj">
+                        <td>
                                 ${obj.name}
                         </td>
-                        <td class="shopObj">
+                        <td>
                                 ${obj.type}
                         </td>
-                        <td class="shopObj">
+                        <td>
                                 ${obj.stock}
                         </td>
-                        <td class="shopObj">
+                        <td>
                                 ${obj.selling_price}
                         </td>
-                        <td class="shopObj">
+                        <td>
                                 ${obj.total_sales}
                         </td>
-                        <td class="shopObj">
+                        <td>
                                 ${obj.total_monthly_sales}
                         </td>
-                        <td class="shopObj">
+                        <td>
                                 ${obj.introduce}
                         </td>
                         <td class="td-manage shopObj">
-                            <a title="编辑"  onclick="editObj(this,${obj.id})" href="javascript:;">
+                            <span title="编辑"  onclick="editObj(this,${obj.id})" href="javascript:;">
                                 <span>编辑</span><i class="layui-icon">&#xe642;</i>
-                            </a>
-                            <a title="删除" href="shopDelete?deleteShopID=${obj.id}" id="delete">
+                            </span>
+                            <span title="删除" href="shopDelete?deleteShopID=${obj.id}" id="delete">
                                 <span>删除</span><i class="layui-icon">&#xe640;</i>
-                            </a>
+                            </span>
                         </td>
                     </tr>
                 </c:forEach>
