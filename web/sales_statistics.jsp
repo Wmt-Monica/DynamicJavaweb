@@ -1,6 +1,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="cn.dreamplume.project.shopping.domain.ShoppingObject" %>
 <%@ page import="cn.dreamplume.project.shopping.dao.ConnectionJDBC" %>
+<%@ page import="java.sql.SQLException" %>
 <%--
   Created by IntelliJ IDEA.
   User: 翊
@@ -29,17 +30,36 @@
     <title>商品销量统计</title>
 </head>
 <%
-    List<ShoppingObject> shoppingObjectList = new ConnectionJDBC().getShoppingObjects();
+    String commodityType = (String) request.getAttribute("commodityType");
+    String commodityName = (String) request.getAttribute("commodityName");
+    System.out.println("commodityType = "+commodityType);
+    System.out.println("commodityName = "+commodityName);
+    // 防止出现在未搜索前的 commodityType 和 commodityName 未赋值出现 null 的现象
+    if (commodityName == null) {
+        commodityName = "";
+    }
+    if (commodityType == null) {
+        commodityType = "";
+    }
+    List<ShoppingObject> shoppingObjectList = null;
+    try {
+        shoppingObjectList = new ConnectionJDBC().getShoppingObjects(commodityType, commodityName);
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } catch (NoSuchFieldException e) {
+        e.printStackTrace();
+    } catch (IllegalAccessException e) {
+        e.printStackTrace();
+    }
     request.setAttribute("shoppingObjectList", shoppingObjectList);
 %>
 <body>
     <div class="x-body">
         <div class="layui-row">
-            <form class="layui-form layui-col-md12 x-so" action="" id="searchByInfo"  method="post">
-                <input class="layui-input" placeholder="商品类型" name="testweekly" id="testweekly">
-                <input class="layui-input" placeholder="商品名称" name="stuclass" id="stuclass">
-                <button class="layui-btn" onclick="searchByInfo()"><i class="layui-icon">&#xe615;</i>
-                </button>
+            <form class="layui-form layui-col-md12 x-so" action="search" id="searchByInfo"  method="post">
+                <input class="layui-input" placeholder="商品类型" name="commodityType" id="commodityType">
+                <input class="layui-input" placeholder="商品名称" name="commodityName" id="commodityName">
+                <input type="submit" class="layui-btn" onclick="searchByInfo()" value="搜索">
             </form>
         </div>
         <script>
@@ -53,12 +73,14 @@
                 width: 50px;
                 height: 30px;
                 color: white;
+                padding-left: 12px;
+                line-height: 30px;
             }
             .shopObj span {
                 cursor: pointer;
             }
         </style>
-        <input type="button" value="刷新" onclick="refreshCommodity()" class="refresh" style="background-color: #009688" >
+        <input type="button" value="刷新" onclick="refreshCommodity()" class="refresh layui-btn" style="background-color: #009688" >
         <hr>
         <table class="layui-table">
             <thead>
@@ -139,15 +161,15 @@
 
         //搜索操作
         function searchByInfo(){
-            var getBookName = $("#bookname").val();
-            var getBookauthor = $("#author").val();
+            var commodityType = $("#commodityType").val();
+            var commodityName = $("#commodityName").val();
             var form = document.getElementById("searchByInfo");
-            form.onsubmit = function(form){
-                if (getBookName == "" && getBookauthor == ""){
+            form.onsubmit = function(){
+                if (commodityType === "" && commodityName === ""){
                     layer.msg('至少填写一个查询信息', {icon: 0.5});
                     return false;
-                }else{
-                    $("#searchByInfo").attr("").submit();
+                }else {
+                    return true;
                 }
             }
         }

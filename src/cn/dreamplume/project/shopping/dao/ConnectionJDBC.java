@@ -52,8 +52,17 @@ public class ConnectionJDBC {
      * 获取数据库中商品表中所有商品对象的 List 集合
      * @return 返回商品 List 集合
      */
-    public List<ShoppingObject> getShoppingObjects() throws SQLException, NoSuchFieldException, IllegalAccessException {
+    public List<ShoppingObject> getShoppingObjects(String commodityType, String commodityName) throws SQLException, NoSuchFieldException, IllegalAccessException {
         String sql = "select * from commodity";
+        if (!commodityType.equals("")&&!commodityName.equals("")) {
+            sql = "select * from commodity where type like "+"\'%"+commodityType+"%\'"+"or name like "+"\'%"+commodityName+"%\'";
+        }else if (!commodityType.equals("")) {
+            sql = "select * from commodity where type like "+"\'%"+commodityType+"%\'";
+        }else if(!commodityName.equals("")) {
+            sql = "select * from commodity where name like "+"\'%"+commodityName+"%\'";
+        }else {
+            sql = "select * from commodity";
+        }
         PreparedStatement pre = conn.prepareStatement(sql);
         ResultSet resultSet = pre.executeQuery();
         ResultSetMetaData metaData = resultSet.getMetaData();
@@ -75,22 +84,16 @@ public class ConnectionJDBC {
         return shoppingObjectList;
     }
 
-    /**
-     * 在数据库中删除指定ID的商品
-     * @param shopObjectID 待删除的商品ID编号
-     */
-    public void deleteShopObject(String shopObjectID) throws SQLException {
-        String sql = "delete from commodity where id = "+shopObjectID;
-        PreparedStatement pre = conn.prepareStatement(sql);
-        pre.execute();
-        pre.close();
-    }
-
     @Test
     public void test() throws SQLException {
 
     }
 
+    /**
+     * 获取商品类型的数据库中的enum所有可能值
+     * @return 返回商品所有可能类型的字符串数组
+     * @throws SQLException
+     */
     public String[] getTypes() throws SQLException {
         String sql = "SELECT\n" +
                 "column_type\n" +
