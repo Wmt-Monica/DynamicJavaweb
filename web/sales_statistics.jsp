@@ -126,7 +126,7 @@
                 shadeClose: true,
                 maxmin: true,
                 //跳出相对路劲,指定显示的页面路径
-                content: 'edit.jsp?deleteID='+getid,
+                content: 'edit.jsp?editID='+getid,
                 // content : '',
                 end: function(){
                     // 如果是通过单击关闭按钮关闭弹出层，父画面没有此表单

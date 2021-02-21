@@ -2,6 +2,7 @@ package cn.dreamplume.project.shopping.dao;
 
 import cn.dreamplume.project.shopping.domain.ShoppingObject;
 import cn.dreamplume.project.shopping.util.JDBCUtil;
+import org.junit.Test;
 
 import java.lang.reflect.Field;
 import java.sql.*;
@@ -83,5 +84,34 @@ public class ConnectionJDBC {
         PreparedStatement pre = conn.prepareStatement(sql);
         pre.execute();
         pre.close();
+    }
+
+    @Test
+    public void test() throws SQLException {
+
+    }
+
+    public String[] getTypes() throws SQLException {
+        String sql = "SELECT\n" +
+                "column_type\n" +
+                "FROM\n" +
+                "information_schema.COLUMNS\n" +
+                "WHERE\n" +
+                "TABLE_SCHEMA = \"formdata\"\n" +
+                "AND DATA_TYPE = 'enum'\n" +
+                "AND table_name=\"commodity\"\n" +
+                "AND column_name=\"type\"";
+        PreparedStatement pre = new JDBCUtil().getConnection().prepareStatement(sql);
+        ResultSet resultSet = pre.executeQuery();
+        String typeList = null;
+        while (resultSet.next()) {
+            typeList = resultSet.getString(1);
+        }
+//        System.out.println(typeList.toString());
+        typeList = typeList.replace("enum(","");
+        typeList = typeList.replace(")","");
+        typeList = typeList.replace("'","");
+        String[] types = typeList.split(",");
+        return types;
     }
 }

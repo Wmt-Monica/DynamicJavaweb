@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.sql.PreparedStatement" %>
 <%@ page import="cn.dreamplume.project.shopping.util.JDBCUtil" %>
 <%@ page import="java.sql.ResultSet" %>
@@ -6,7 +7,8 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.sql.ResultSetMetaData" %>
 <%@ page import="java.lang.reflect.Field" %>
-<%@ page import="java.sql.SQLException" %><%--
+<%@ page import="java.sql.SQLException" %>
+<%@ page import="cn.dreamplume.project.shopping.dao.ConnectionJDBC" %><%--
   Created by IntelliJ IDEA.
   User: 翊
   Date: 2021/2/19
@@ -43,7 +45,7 @@
     // 将编辑商品信息的页面中保留原先商品的信息
     try {
         // 创建筛选出的 SQL 语句
-        String sql = "select name, type, selling_price,introduce, stock from commodity where id = "+request.getParameter("deleteID");
+        String sql = "select name, type, selling_price,introduce, stock from commodity where id = "+request.getParameter("editID");
         // 创建预编译Sql语句对象
         PreparedStatement pre = null;
         pre = new JDBCUtil().getConnection().prepareStatement(sql);
@@ -96,19 +98,19 @@
                 }
             }
         </script>
+        <%
+            // 获取数据库中商品类型enum中的所有值再通过 <c:forEach> 语句来循环进行遍历
+            String[] types = new ConnectionJDBC().getTypes();
+            request.setAttribute("types",types);
+        %>
         <div class="layui-form-item">
             <label class="layui-form-label">商品类型</label>
             <div class="layui-input-block">
                 <select name="commodityType" lay-filter="adminRole" id="selectType" onselect="selectDefault()">
-                    <option value="">请选择商品类型</option>
-                    <option value="果蔬">果蔬</option>
-                    <option value="服饰">服饰</option>
-                    <option value="糖果">糖果</option>
-                    <option value="电子">电子</option>
-                    <option value="鞋子">鞋子</option>
-                    <option value="化妆品}">化妆品</option>
-                    <option value="家具">家具</option>
-                    <option value="文具">文具</option>
+                    <option value="${requestScope.obj.type}">${requestScope.obj.type}</option>
+                    <c:forEach items="${requestScope.types}" var="type">
+                        <option value="${type}">${type}</option>
+                    </c:forEach>
                 </select>
             </div>
         </div>
