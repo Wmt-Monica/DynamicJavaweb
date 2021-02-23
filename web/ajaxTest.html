@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax测试Html页面</title>
+</head>
+<script>
+    window.onload = function () {
+        document.getElementById("tongBu").getElementsByTagName("li")[0].innerHTML = "动态的改变页面中指定的内容";
+    }
+
+    function fun1() {
+        // ajax 的基本步骤
+        // 1.创建 ajax 引擎对象 ----> 所有的操作都是通过引擎对象
+        var xmlHttp = new XMLHttpRequest();
+        // 2.绑定监听 ----> 监听服务器是否已经返回相应的数据
+        xmlHttp.onreadystatechange = function () {
+            // 5.接受相应的数据
+            var sendResult = xmlHttp.responseText;
+            alert(sendResult);
+        }
+        // 3.绑定地址
+        /*
+            参数一：访问服务器的方式
+            参数二：访问服务器的服务器地址
+            参数三：是否为异步
+         */
+        xmlHttp.open("POST", "http://localhost:8080/ajaxServlet", true);
+        // 4.发送请求
+        xmlHttp.send();
+    }
+</script>
+<body>
+    <div id="tongBu">
+        <!--
+            同步现象︰客户端发送请求到服务器端，当服务器返回响应之前，客户端都处于等待卡死状态
+            异步现象︰客户端发送请求到服务器端，无论服务器是否返回响应，客户端都可以随意做其他事情，不会被卡死
+        -->
+        <li>同步代码</li>
+        <input type="button" onclick="fun1()" value="异步获取服务器中的相应数据">
+    </div>
+</body>
+</html>
