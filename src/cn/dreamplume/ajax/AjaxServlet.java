@@ -19,10 +19,16 @@ public class AjaxServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
         response.setCharacterEncoding("UTF-8");
-//        response.setHeader("Access-Control-Allow-Origin", "*");
-//        response.setHeader("Access-Control-Allow-Headers", "*");
-//        response.setHeader("Access-Control-Allow-Credentials", "true");
-//        response.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
+        // 为实现后端的跨域操作，要对响应头进行如下的设置
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Headers", "*");
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        response.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
+        try {
+            Thread.sleep(5000);  // 线程休眠
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         response.getWriter().write("ajax相应传回的信息");
     }
 

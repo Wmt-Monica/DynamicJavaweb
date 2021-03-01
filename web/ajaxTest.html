@@ -32,6 +32,56 @@
         // 4.发送请求
         xmlHttp.send();
     }
+
+    function fun2() {
+        // ajax 的基本步骤
+        // 1.创建 ajax 引擎对象 ----> 所有的操作都是通过引擎对象
+        var xmlHttp = new XMLHttpRequest();
+        // 2.绑定监听 ----> 监听服务器是否已经返回相应的数据
+        xmlHttp.onreadystatechange = function () {
+            if(xmlHttp.readyState === 4 && xmlHttp.status === 200) {
+                // 5.接受相应的数据
+                var sendResult = xmlHttp.responseText;
+                document.getElementById("fun2").innerHTML = sendResult;
+                console.log(sendResult);
+            }
+        }
+        // 3.绑定地址
+        /*
+            参数一：访问服务器的方式
+            参数二：访问服务器的服务器地址
+            参数三：是否为异步
+            http://localhost:8080/ajaxServlet
+         */
+        xmlHttp.open("POST","http://localhost:8080/ajaxServlet", true);
+        // 4.发送请求
+        xmlHttp.send();
+    }
+
+    function fun3() {
+        // ajax 的基本步骤
+        // 1.创建 ajax 引擎对象 ----> 所有的操作都是通过引擎对象
+        var xmlHttp = new XMLHttpRequest();
+        // 2.绑定监听 ----> 监听服务器是否已经返回相应的数据
+        xmlHttp.onreadystatechange = function () {
+            if(xmlHttp.readyState === 4 && xmlHttp.status === 200) {
+                // 5.接受相应的数据
+                var sendResult = xmlHttp.responseText;
+                document.getElementById("fun3").innerHTML = sendResult;
+                console.log(sendResult);
+            }
+        }
+        // 3.绑定地址
+        /*
+            参数一：访问服务器的方式
+            参数二：访问服务器的服务器地址
+            参数三：是否为异步
+            http://localhost:8080/ajaxServlet
+         */
+        xmlHttp.open("POST","http://localhost:8080/ajaxServlet", false);
+        // 4.发送请求
+        xmlHttp.send();
+    }
 </script>
 <body>
 <div id="tongBu">
@@ -42,6 +92,11 @@
     <li>同步代码</li>
     <li>异步代码</li>
     <input type="button" onclick="fun1()" value="异步获取服务器中的相应数据">
+    <br><br>
+    <h3>同异步的区别</h3>
+    <input type="button" onclick="fun2()" value="异步"><span id="fun2"></span><br>
+    <input type="button" onclick="fun3()" value="同步"><span id="fun3"></span><br>
+    <input type="button" onclick="alert()" value="测试按钮">
 </div>
 </body>
 </html>
