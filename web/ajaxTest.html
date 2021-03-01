@@ -11,7 +11,13 @@
     function fun1() {
         // ajax 的基本步骤
         // 1.创建 ajax 引擎对象 ----> 所有的操作都是通过引擎对象
-        var xmlHttp = new XMLHttpRequest();
+        var xmlHttp;
+        // XMLHttpRequest 浏览器对象的兼容
+        if (window.XMLHttpRequest) {
+            xmlHttp = new XMLHttpRequest();
+        }else {
+            xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
         // 2.绑定监听 ----> 监听服务器是否已经返回相应的数据
         xmlHttp.onreadystatechange = function () {
             if(xmlHttp.readyState === 4 && xmlHttp.status === 200) {
@@ -28,7 +34,7 @@
             参数三：是否为异步
             http://localhost:8080/ajaxServlet
          */
-        xmlHttp.open("POST","http://localhost:8080/ajaxServlet", true);
+        xmlHttp.open("GET","http://localhost:8080/ajaxServlet?condition=get发送请求的参数内容", true);
         // 4.发送请求
         xmlHttp.send();
     }
@@ -36,7 +42,13 @@
     function fun2() {
         // ajax 的基本步骤
         // 1.创建 ajax 引擎对象 ----> 所有的操作都是通过引擎对象
-        var xmlHttp = new XMLHttpRequest();
+        var xmlHttp;
+        // XMLHttpRequest 浏览器对象的兼容
+        if (window.XMLHttpRequest) {
+            xmlHttp = new XMLHttpRequest();
+        }else {
+            xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
         // 2.绑定监听 ----> 监听服务器是否已经返回相应的数据
         xmlHttp.onreadystatechange = function () {
             if(xmlHttp.readyState === 4 && xmlHttp.status === 200) {
@@ -53,7 +65,7 @@
             参数三：是否为异步
             http://localhost:8080/ajaxServlet
          */
-        xmlHttp.open("POST","http://localhost:8080/ajaxServlet", true);
+        xmlHttp.open("GET","http://localhost:8080/ajaxServlet?condition=get发送请求的参数内容", true);
         // 4.发送请求
         xmlHttp.send();
     }
@@ -61,7 +73,13 @@
     function fun3() {
         // ajax 的基本步骤
         // 1.创建 ajax 引擎对象 ----> 所有的操作都是通过引擎对象
-        var xmlHttp = new XMLHttpRequest();
+        var xmlHttp;
+        // XMLHttpRequest 浏览器对象的兼容
+        if (window.XMLHttpRequest) {
+            xmlHttp = new XMLHttpRequest();
+        }else {
+            xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
         // 2.绑定监听 ----> 监听服务器是否已经返回相应的数据
         xmlHttp.onreadystatechange = function () {
             if(xmlHttp.readyState === 4 && xmlHttp.status === 200) {
@@ -80,7 +98,9 @@
          */
         xmlHttp.open("POST","http://localhost:8080/ajaxServlet", false);
         // 4.发送请求
-        xmlHttp.send();
+        // 如果发送方式是 post 类型，那么添加响应头的参数要添加如下代码
+        xmlHttp.setRequestHeader("content-type" , "application/x-www-form-urlencoded");
+        xmlHttp.send("condition=Post发送请求的参数");
     }
 </script>
 <body>
