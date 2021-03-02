@@ -165,6 +165,7 @@
             dataType:"json"  // 服务器发送回来的数据类型 text/json...
         });
     };
+
 </script>
 <h3>jQuery版本Ajax</h3>
 <div>
