@@ -150,11 +150,28 @@
             "json"
         );
     };
+
+    function fun6() {
+        $.ajax({
+            url:"/jQueryAjaxServlet",  // url 请求服务器方地址
+            async:true,  // 是否为异步(默认是true)
+            type:"POST",  // 请求方式 GET/POST
+            data:{"name":"Monica","age":20},  // 请求方发送出去的参数
+            success:function (data) {  // 请求成功后执行的回执函数
+                document.getElementById("ajaxButton").innerHTML = data.name;
+            },
+            error:function(){
+                alert("请求发送失败");
+            },
+            dataType:"json"  // 服务器发送回来的数据类型 text/json...
+        });
+    };
 </script>
 <h3>jQuery版本Ajax</h3>
 <div>
     <input type="button" onclick="fun4()" value="get异步访问"><span id="getButton"></span><br>
     <input type="button" onclick="fun5()" value="put异步访问"><span id="putButton"></span><br>
+    <input type="button" onclick="fun6()" value="ajax访问"><span id="ajaxButton"></span><br>
 </div>
 </body>
 </html>
