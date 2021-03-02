@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>json02</title>
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  </head>
+  <body>
+      <div>
+        people1:<span id="people0"></span><br>
+        people2:<span id="people1"></span>
+      </div>
+  </body>
+  
+  <script language="JavaScript">
+  	/**
+	 * 案例二
+	 *  [{key:value,key:value},{key:value,key:value}]
+	 *  
+	 */
+    var people = [
+      {"name":"石燔","age":22},
+      {"name":"王梦婷","age":20}
+    ];
+    document.getElementById("people0").innerHTML = people[0].name;
+    document.getElementById("people1").innerHTML = people[1].name;
+  	
+  </script>
+</html>
