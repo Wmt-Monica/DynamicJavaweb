@@ -1,4 +1,12 @@
-<html lang="en">
+<%--
+  Created by IntelliJ IDEA.
+  User: 翊
+  Date: 2021/3/2
+  Time: 15:52
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
 <head>
     <meta charset="UTF-8">
     <title>ajax测试Html页面</title>
@@ -34,7 +42,7 @@
             参数三：是否为异步
             http://localhost:8080/ajaxServlet
          */
-        xmlHttp.open("GET","http://localhost:8080/ajaxServlet?condition=get发送请求的参数内容", true);
+        xmlHttp.open("GET","http://localhost:8080/jsAjaxServlet?condition=get发送请求的参数内容", true);
         // 4.发送请求
         xmlHttp.send();
     }
@@ -65,7 +73,7 @@
             参数三：是否为异步
             http://localhost:8080/ajaxServlet
          */
-        xmlHttp.open("GET","http://localhost:8080/ajaxServlet?condition=get发送请求的参数内容", true);
+        xmlHttp.open("GET","http://localhost:8080/jsAjaxServlet?condition=get发送请求的参数内容", true);
         // 4.发送请求
         xmlHttp.send();
     }
@@ -96,7 +104,7 @@
             参数三：是否为异步
             http://localhost:8080/ajaxServlet
          */
-        xmlHttp.open("POST","http://localhost:8080/ajaxServlet", false);
+        xmlHttp.open("POST","http://localhost:8080/jsAjaxServlet", false);
         // 4.发送请求
         // 如果发送方式是 post 类型，那么添加响应头的参数要添加如下代码
         xmlHttp.setRequestHeader("content-type" , "application/x-www-form-urlencoded");
@@ -104,6 +112,7 @@
     }
 </script>
 <body>
+<h3>js原生Ajax</h3>
 <div id="tongBu">
     <!--
         同步现象︰客户端发送请求到服务器端，当服务器返回响应之前，客户端都处于等待卡死状态
@@ -117,6 +126,35 @@
     <input type="button" onclick="fun2()" value="异步"><span id="fun2"></span><br>
     <input type="button" onclick="fun3()" value="同步"><span id="fun3"></span><br>
     <input type="button" onclick="alert()" value="测试按钮">
+</div>
+<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+<script type="text/javascript">
+    function fun4() {
+        $.get(
+            "/jQueryAjaxServlet",  // url 地址
+            {"name":"王梦婷","age":22},  // 请求参数
+            function (data) {  // 执行成功后的回调函数
+                document.getElementById("getButton").innerHTML = data.name;
+            },
+            "json"
+        );
+    };
+
+    function fun5() {
+        $.post(
+            "/jQueryAjaxServlet",  // url 地址
+            {"name":"石燔","age":22},  // 请求参数
+            function (data) {  // 执行成功后的回调函数
+                document.getElementById("putButton").innerHTML = data.name;
+            },
+            "json"
+        );
+    };
+</script>
+<h3>jQuery版本Ajax</h3>
+<div>
+    <input type="button" onclick="fun4()" value="get异步访问"><span id="getButton"></span><br>
+    <input type="button" onclick="fun5()" value="put异步访问"><span id="putButton"></span><br>
 </div>
 </body>
 </html>

@@ -13,8 +13,8 @@ import java.io.IOException;
  * @Date 2021/2/23 23:36
  * @Created by 翊
  */
-@WebServlet(name = "AjaxServlet")
-public class AjaxServlet extends HttpServlet {
+@WebServlet(name = "JsAjaxServlet")
+public class JsAjaxServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");

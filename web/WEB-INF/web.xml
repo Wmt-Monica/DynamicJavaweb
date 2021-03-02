@@ -310,11 +310,20 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>AjaxServlet</servlet-name>
-        <servlet-class>cn.dreamplume.ajax.AjaxServlet</servlet-class>
+        <servlet-name>JsAjaxServlet</servlet-name>
+        <servlet-class>cn.dreamplume.ajax.JsAjaxServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>AjaxServlet</servlet-name>
-        <url-pattern>/ajaxServlet</url-pattern>
+        <servlet-name>JsAjaxServlet</servlet-name>
+        <url-pattern>/jsAjaxServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>JQueryAjaxServlet</servlet-name>
+        <servlet-class>cn.dreamplume.ajax.JQueryAjaxServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>JQueryAjaxServlet</servlet-name>
+        <url-pattern>/jQueryAjaxServlet</url-pattern>
     </servlet-mapping>
 </web-app>
