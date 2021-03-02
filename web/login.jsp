@@ -84,7 +84,28 @@
         }
     </style>
 </head>
-
+<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        // 为姓名框中绑定失去焦点事件 blur(function(){};);
+        $("#name").blur(function () {
+            var userName = (this).value;
+            $.post(
+                "/judgeUseName",   //url
+                {"userName":userName},  // 请求参数(将用户名中的数据发送给服务器端)
+                 function (data) {  // 成功运行后服务器返回的数据信息
+                    if (data === 'false') {
+                        document.getElementById("judgeUserName").innerHTML = "<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+                            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户名不存在"+"<br>";
+                    }else {
+                        document.getElementById("judgeUserName").innerHTML = "";
+                    }
+                 },
+                "text"  // 返回数据的类型
+            );
+        });
+    });
+</script>
 <body>
     <form class="layui-form" action="judgeLogin" id="loginForm" method="post">
         <div class="layui-form-item">
@@ -93,7 +114,8 @@
         <div class="layui-form-item">
             <div class="layui-input-block">
                 <span class="decrib">账号：</span>
-                <input type="text" name="userName" placeholder="请输入账号" autocomplete="off" class="layui-input" autofocus required>
+                <input id="name" type="text" name="userName" placeholder="请输入账号" autocomplete="off" class="layui-input" autofocus required>
+                <span id="judgeUserName" style="color: red"></span>
             </div>
         </div>
 
