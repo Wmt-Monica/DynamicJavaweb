@@ -42,7 +42,7 @@
             参数三：是否为异步
             http://localhost:8080/ajaxServlet
          */
-        xmlHttp.open("GET","http://localhost:8080/jsAjaxServlet?condition=get发送请求的参数内容", true);
+        xmlHttp.open("GET","/jsAjaxServlet?condition=get发送请求的参数内容", true);
         // 4.发送请求
         xmlHttp.send();
     }
@@ -73,7 +73,7 @@
             参数三：是否为异步
             http://localhost:8080/ajaxServlet
          */
-        xmlHttp.open("GET","http://localhost:8080/jsAjaxServlet?condition=get发送请求的参数内容", true);
+        xmlHttp.open("GET","/jsAjaxServlet?condition=get发送请求的参数内容", true);
         // 4.发送请求
         xmlHttp.send();
     }
@@ -102,9 +102,8 @@
             参数一：访问服务器的方式
             参数二：访问服务器的服务器地址
             参数三：是否为异步
-            http://localhost:8080/ajaxServlet
          */
-        xmlHttp.open("POST","http://localhost:8080/jsAjaxServlet", false);
+        xmlHttp.open("POST","/jsAjaxServlet", false);
         // 4.发送请求
         // 如果发送方式是 post 类型，那么添加响应头的参数要添加如下代码
         xmlHttp.setRequestHeader("content-type" , "application/x-www-form-urlencoded");
