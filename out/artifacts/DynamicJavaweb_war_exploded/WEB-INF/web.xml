@@ -335,4 +335,22 @@
         <servlet-name>JudgeUseName</servlet-name>
         <url-pattern>/judgeUseName</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SearchType</servlet-name>
+        <servlet-class>cn.dreamplume.ajax.SearchType</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchType</servlet-name>
+        <url-pattern>/searchType</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SearchName</servlet-name>
+        <servlet-class>cn.dreamplume.ajax.SearchName</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchName</servlet-name>
+        <url-pattern>/searchName</url-pattern>
+    </servlet-mapping>
 </web-app>

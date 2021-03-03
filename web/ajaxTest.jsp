@@ -137,7 +137,7 @@
             },
             "json"
         );
-    };
+    }
 
     function fun5() {
         $.post(
