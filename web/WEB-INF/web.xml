@@ -355,7 +355,15 @@
     </servlet-mapping>
 
     <!--  注册监听器  -->
+<!--    <listener>-->
+<!--        <listener-class>cn.dreamplume.listener.ServletContextListenerTest</listener-class>-->
+<!--    </listener>-->
+
+<!--    <listener>-->
+<!--        <listener-class>cn.dreamplume.listener.HttpSessionListenerTest</listener-class>-->
+<!--    </listener>-->
+
     <listener>
-        <listener-class>cn.dreamplume.listener.ServletContextListenerTest</listener-class>
+        <listener-class>cn.dreamplume.listener.ServletRequestTest</listener-class>
     </listener>
 </web-app>

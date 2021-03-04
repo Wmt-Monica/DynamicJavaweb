@@ -1,7 +1,5 @@
 package cn.dreamplume.listener;
 
-import org.junit.Test;
-
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import java.text.ParseException;
@@ -20,19 +18,6 @@ import java.util.TimerTask;
  */
 // ServletContextListener 对象要实现 ServletContextListener 接口
 public class ServletContextListenerTest implements ServletContextListener {
-
-    @Test
-    public void test() {
-        // 创建定时器功能
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        Date date = new Date();
-        String time = date.toString();
-        System.out.println("time = "+time);
-        int year = Integer.parseInt(time.substring(24,28)) ;
-        int month = Integer.parseInt(time.substring(8,10));
-        int day = Integer.parseInt(time.substring(11,13));
-        System.out.println("year = "+year+"\tmonth = "+month+"\tday = "+day);
-    }
 
     // 监听context域对象的创建时执行的方法（用户初始化web应用的一些初始化配置或者是数据，数据库，连接池等）
     public void contextInitialized(ServletContextEvent sce) {
@@ -61,13 +46,11 @@ public class ServletContextListenerTest implements ServletContextListener {
                         }
                     },
                     startRunTime,  // 定时器起始时间
-                    1000  // 定时器定时的运行的相隔时间 (单位 ms)
+                    1000*60*60  // 定时器定时的运行的相隔时间 (单位 ms)
             );
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
-
 
         System.out.println("ServletContext监听被创建");
 
