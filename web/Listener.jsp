@@ -19,5 +19,13 @@
     <a href="httpSessionBindingListenerServer">
         People 对象在 Session 域对象中使用 HttpSessionBindingListenerServer 监听器接口
     </a><br>
+
+    <a href="httpSessionActivationListenerServerStart">
+        钝化 customer 对象
+    </a><br>
+
+    <a href="httpSessionActivationListenerServerEnd">
+        活化 customer 对象
+    </a><br>
 </body>
 </html>

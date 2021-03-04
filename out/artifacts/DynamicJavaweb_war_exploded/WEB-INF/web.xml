@@ -367,9 +367,9 @@
 <!--        <listener-class>cn.dreamplume.listener.ServletRequestTest</listener-class>-->
 <!--    </listener>-->
 
-    <listener>
-        <listener-class>cn.dreamplume.listener.ServletContextAttributeListenerTest</listener-class>
-    </listener>
+<!--    <listener>-->
+<!--        <listener-class>cn.dreamplume.listener.ServletContextAttributeListenerTest</listener-class>-->
+<!--    </listener>-->
 
     <servlet>
         <servlet-name>ServletContextAttributeListenerServer</servlet-name>
@@ -389,4 +389,26 @@
         <url-pattern>/httpSessionBindingListenerServer</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>HttpSessionActivationListenerServerStart</servlet-name>
+        <servlet-class>cn.dreamplume.listener.HttpSessionActivationListenerServerStart</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HttpSessionActivationListenerServerStart</servlet-name>
+        <url-pattern>/httpSessionActivationListenerServerStart</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>HttpSessionActivationListenerServerEnd</servlet-name>
+        <servlet-class>cn.dreamplume.listener.HttpSessionActivationListenerServerEnd</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HttpSessionActivationListenerServerEnd</servlet-name>
+        <url-pattern>/httpSessionActivationListenerServerEnd</url-pattern>
+    </servlet-mapping>
+
+    <listener>
+        <listener-class>cn.dreamplume.listener.HttpSessionActivationListenerPeople</listener-class>
+    </listener>
+    
 </web-app>
