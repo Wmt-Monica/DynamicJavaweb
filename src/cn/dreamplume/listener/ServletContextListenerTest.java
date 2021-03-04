@@ -4,8 +4,12 @@ import org.junit.Test;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * @Classname ServletContextListenerTest
@@ -32,21 +36,40 @@ public class ServletContextListenerTest implements ServletContextListener {
 
     // 监听context域对象的创建时执行的方法（用户初始化web应用的一些初始化配置或者是数据，数据库，连接池等）
     public void contextInitialized(ServletContextEvent sce) {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        System.out.println("ServletContext监听被创建");
-//        // 获取被监听的对象
-//        ServletContext servletContext = sce.getServletContext();
-//        // getSource就是被监听的对象 是通用的方法
-//        Source source = (Source) sce.getSource();
-//        ServletContext source2 = (ServletContext) sce.getSource();
+        // 获取当下的时间，不使用 SimpleDateFormat 对象的过时的方法，使用日历对象的获取方法
+        Date date = new Date();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH) + 1;
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        System.out.println("year = "+year);
+        System.out.println("month = "+month);
+        System.out.println("day = "+day);
 
-//        // 创建定时器功能
-//        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-//        Date date = new Date();
-//        int year = date.getYear();
-        // 创建定时器功能
-//        System.out.println("=============");
-//        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        String currentTime = "2021-3-4 14:35:00";
+        try {
+            Date startRunTime = format.parse(currentTime);  // 创建表示web应用定时器启动开始的时间 Date 对象
+            // web 应用一启动就开启任务调度
+            Timer timer = new Timer();
+            timer.scheduleAtFixedRate(  /// 使用 Timer 对象的 scheduleAtFixedRate() 方法
+                    new TimerTask() {  // 创建 TimerTask 对象，其中有定时器定时启动的 run() 方法
+                        @Override
+                        public void run() {
+                            System.out.println("计时开始");
+                        }
+                    },
+                    startRunTime,  // 定时器起始时间
+                    1000  // 定时器定时的运行的相隔时间 (单位 ms)
+            );
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
+
+        System.out.println("ServletContext监听被创建");
 
     }
 
