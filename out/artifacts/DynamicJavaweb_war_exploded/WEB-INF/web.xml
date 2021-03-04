@@ -353,4 +353,9 @@
         <servlet-name>SearchName</servlet-name>
         <url-pattern>/searchName</url-pattern>
     </servlet-mapping>
+
+    <!--  注册监听器  -->
+    <listener>
+        <listener-class>cn.dreamplume.listener.ServletContextListenerTest</listener-class>
+    </listener>
 </web-app>

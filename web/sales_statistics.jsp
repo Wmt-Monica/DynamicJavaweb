@@ -202,9 +202,10 @@
                             <span title="编辑"  onclick="editObj(this,${obj.id})" href="javascript:;">
                                 <span>编辑</span><i class="layui-icon">&#xe642;</i>
                             </span>
-                            <span title="删除" href="shopDelete?deleteShopID=${obj.id}" id="delete">
+<%--                            <a href="http://baidu.com">百度</a>--%>
+                            <a style="color: black" title="删除" href="shopDelete?deleteShopID=${obj.id}" id="delete">
                                 <span>删除</span><i class="layui-icon">&#xe640;</i>
-                            </span>
+                            </a>
                         </td>
                     </tr>
                 </c:forEach>

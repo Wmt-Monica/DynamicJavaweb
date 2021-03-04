@@ -46,6 +46,7 @@
     try {
         // 创建筛选出的 SQL 语句
         String sql = "select name, type, selling_price,introduce, stock from commodity where id = "+request.getParameter("editID");
+        System.out.println("sql = "+sql);
         // 创建预编译Sql语句对象
         PreparedStatement pre = null;
         pre = new JDBCUtil().getConnection().prepareStatement(sql);
@@ -71,6 +72,7 @@
                 e.printStackTrace();
             }
         }
+        System.out.println("obj = "+obj.toString());
         // 将编辑的待修改商品信息的存入 request 域容器中
         request.setAttribute("obj", obj);
     } catch (SQLException e) {
@@ -139,7 +141,7 @@
             </div>
         </div>
         <%--  此处创建一个 hidden 属性的 input 是为了将修改商品的编号ID能够传给服务器  --%>
-        <input type="hidden" name="deleteID" value="${pageContext.request.getParameter("deleteID")}" checked="checked" >
+        <input type="hidden" name="deleteID" value="${pageContext.request.getParameter("editID")}" checked="checked" >
         <div class="layui-form-item">
             <div class="layui-input-block">
                 <input type="submit" class="layui-btn" lay-submit lay-filter="*" value="提交">

@@ -26,6 +26,7 @@ public class ShopDelete extends HttpServlet {
         String deleteShopID = request.getParameter("deleteShopID");
         // 创建删除数据库中指定ID编号商品
         String sql = "delete from commodity where id = "+deleteShopID;
+        System.out.println("sql = "+sql);
         try {
             // 创建预编译 PreparedStatement 对象
             PreparedStatement pre = new JDBCUtil().getConnection().prepareStatement(sql);

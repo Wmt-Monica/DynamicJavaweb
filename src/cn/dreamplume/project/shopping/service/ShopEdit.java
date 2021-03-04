@@ -32,18 +32,18 @@ public class ShopEdit extends HttpServlet {
         String commodityPrice = request.getParameter("commodityPrice");
         String commodityStock = request.getParameter("commodityStock");
         String commodityIntroduce = request.getParameter("commodityIntroduce");
-        String deleteID = request.getParameter("deleteID");
+        String editID = request.getParameter("editID");
 
         System.out.println("commodityName = "+commodityName);
         System.out.println("commodityType = "+commodityType);
         System.out.println("commodityPrice = "+commodityPrice);
         System.out.println("commodityStock = "+commodityStock);
         System.out.println("commodityIntroduce = "+commodityIntroduce);
-        System.out.println("deleteID = "+deleteID);
+        System.out.println("editID = "+editID);
 
         String sql = "update commodity set name = "+"\'"+commodityName+"\', "+"type = "+"\'"+commodityType+"\', "+
                 "selling_price = "+commodityPrice+", stock = "+commodityStock+", introduce = "+"\'"+commodityIntroduce+"\'"+
-                "where id = "+deleteID;
+                "where id = "+editID;
         try {
             PreparedStatement pre = new JDBCUtil().getConnection().prepareStatement(sql);  // 创建预编译SQL语句对象
             pre.execute();  // 执行SQL语句
