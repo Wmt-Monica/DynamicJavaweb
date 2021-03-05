@@ -3,9 +3,10 @@ package cn.dreamplume.project.shopping.service;
 import cn.dreamplume.project.shopping.dao.ConnectionJDBC;
 
 import javax.servlet.*;
-import javax.servlet.http.*;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.net.URLEncoder;
 import java.sql.SQLException;
 
 /**
@@ -59,38 +60,38 @@ public class FilterLogin implements Filter {
             }
         }
 
-        if (automaticLogon != null || rememberInformation != null) {
-            //  设置 Cookie 的存在路径
-            userNameCookie.setPath("/judgeLogin");
-            userPasswordCookie.setPath("/judgeLogin");
-            userTypeCookie.setPath("/judgeLogin");
-            automaticLogonCookie.setPath("/judgeLogin");
-            rememberInformationCookie.setPath("/judgeLogin");
-            // 将 Cookie 对象存入 response 对象中去
-            // 注意：addCookie() 方法只有 HttpServletResponse 对象中可以添加 Cookie 对象
-            ((HttpServletResponse) response).addCookie(userNameCookie);
-            ((HttpServletResponse) response).addCookie(userPasswordCookie);
-            ((HttpServletResponse) response).addCookie(userTypeCookie);
-            ((HttpServletResponse) response).addCookie(automaticLogonCookie);
-            ((HttpServletResponse) response).addCookie(rememberInformationCookie);
-            // 将 Cookie 数据存入 HttpSession 对象中去
-            session.setAttribute("userNameCookie",userNameCookie);
-            session.setAttribute("userPasswordCookie",userPasswordCookie);
-            session.setAttribute("userTypeCookie",userTypeCookie);
-            session.setAttribute("automaticLogonCookie",automaticLogonCookie);
-            session.setAttribute("rememberInformationCookie",rememberInformationCookie);
-        }else {
-            Cookie[] cookies = ((HttpServletRequest)request).getCookies();
-            for (Cookie c : cookies) {
-
-            }
-            // 如果未勾选下次自动登录和记住用户名和密码就将这些 Cookie 从该路径中删除
-            userNameCookie.setMaxAge(0);
-            userPasswordCookie.setMaxAge(0);
-            userTypeCookie.setMaxAge(0);
-            automaticLogonCookie.setMaxAge(0);
-            rememberInformationCookie.setMaxAge(0);
-        }
+//        if (automaticLogon != null || rememberInformation != null) {
+//            //  设置 Cookie 的存在路径
+//            userNameCookie.setPath("/judgeLogin");
+//            userPasswordCookie.setPath("/judgeLogin");
+//            userTypeCookie.setPath("/judgeLogin");
+//            automaticLogonCookie.setPath("/judgeLogin");
+//            rememberInformationCookie.setPath("/judgeLogin");
+//            // 将 Cookie 对象存入 response 对象中去
+//            // 注意：addCookie() 方法只有 HttpServletResponse 对象中可以添加 Cookie 对象
+//            ((HttpServletResponse) response).addCookie(userNameCookie);
+//            ((HttpServletResponse) response).addCookie(userPasswordCookie);
+//            ((HttpServletResponse) response).addCookie(userTypeCookie);
+//            ((HttpServletResponse) response).addCookie(automaticLogonCookie);
+//            ((HttpServletResponse) response).addCookie(rememberInformationCookie);
+//            // 将 Cookie 数据存入 HttpSession 对象中去
+//            session.setAttribute("userNameCookie",userNameCookie);
+//            session.setAttribute("userPasswordCookie",userPasswordCookie);
+//            session.setAttribute("userTypeCookie",userTypeCookie);
+//            session.setAttribute("automaticLogonCookie",automaticLogonCookie);
+//            session.setAttribute("rememberInformationCookie",rememberInformationCookie);
+//        }else {
+//            Cookie[] cookies = ((HttpServletRequest)request).getCookies();
+//            for (Cookie c : cookies) {
+//
+//            }
+//            // 如果未勾选下次自动登录和记住用户名和密码就将这些 Cookie 从该路径中删除
+//            userNameCookie.setMaxAge(0);
+//            userPasswordCookie.setMaxAge(0);
+//            userTypeCookie.setMaxAge(0);
+//            automaticLogonCookie.setMaxAge(0);
+//            rememberInformationCookie.setMaxAge(0);
+//        }
     }
 
     @Override
