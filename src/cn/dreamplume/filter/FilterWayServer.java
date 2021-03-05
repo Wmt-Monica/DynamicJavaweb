@@ -23,6 +23,9 @@ public class FilterWayServer extends HttpServlet {
         System.out.println("FilterWayServer is running....");
         System.out.println("forward is success over....");
         request.getRequestDispatcher("/FilterTest.jsp").forward(request,response);
+        // 其中 response 对象中的 sendRedirect() 方法是采用重定向的方式跳转到指定的页面，此方法可以用于 Filter
+        // 的默认方式 REQUEST(request) 来实行有效的 Filter 中的 doFilter() 方法：重定向属于直接访问
+//        response.sendRedirect("/FilterTest.jsp");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
