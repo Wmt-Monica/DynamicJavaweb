@@ -470,4 +470,13 @@
         <servlet-name>FilterWayServer</servlet-name>
         <url-pattern>/filterWayServer</url-pattern>
     </servlet-mapping>
+
+    <filter>
+        <filter-name>FilterLogin</filter-name>
+        <filter-class>cn.dreamplume.project.shopping.service.FilterLogin</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>FilterLogin</filter-name>
+        <url-pattern>/judgeLogin</url-pattern>
+    </filter-mapping>
 </web-app>

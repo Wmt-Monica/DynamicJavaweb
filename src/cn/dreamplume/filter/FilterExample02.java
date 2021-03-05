@@ -17,11 +17,11 @@ public class FilterExample02 implements Filter {
     @Override
     public void init(FilterConfig filterConfig)
             throws ServletException {
-        System.out.println("===================");
-        System.out.println("filter name is "+filterConfig.getFilterName());
-        System.out.println("filter init name value is "+filterConfig.getInitParameter("name"));
-        System.out.println("servletContext is "+filterConfig.getServletContext());
-        System.out.println("===================");
+//        System.out.println("===================");
+//        System.out.println("filter name is "+filterConfig.getFilterName());
+//        System.out.println("filter init name value is "+filterConfig.getInitParameter("name"));
+//        System.out.println("servletContext is "+filterConfig.getServletContext());
+//        System.out.println("===================");
     }
 
     @Override

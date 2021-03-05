@@ -82,6 +82,17 @@
             color: red;
             margin-left: 15%;
         }
+        .layui-form-item input[type=checkbox] {
+            display: block;
+            margin-top: 4px;
+            float: left;
+        }
+        .filterSpan {
+            float: left;
+        }
+        .filterSpanRight {
+            margin-left: 30px;
+        }
     </style>
 </head>
 <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
@@ -90,19 +101,21 @@
         // 为姓名框中绑定失去焦点事件 blur(function(){};);
         $("#name").blur(function () {
             var userName = (this).value;
-            $.post(
-                "/judgeUseName",   //url
-                {"userName":userName},  // 请求参数(将用户名中的数据发送给服务器端)
-                 function (data) {  // 成功运行后服务器返回的数据信息
-                    if (data === 'false') {
-                        document.getElementById("judgeUserName").innerHTML = "<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
-                            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户名不存在"+"<br>";
-                    }else {
-                        document.getElementById("judgeUserName").innerHTML = "";
-                    }
-                 },
-                "text"  // 返回数据的类型
-            );
+            if (userName !== "") {  // 当输入的用户名不为空时使用ajax异步为该用户名与数据库中的用户名校正
+                $.post(
+                    "/judgeUseName",   //url
+                    {"userName":userName},  // 请求参数(将用户名中的数据发送给服务器端)
+                    function (data) {  // 成功运行后服务器返回的数据信息
+                        if (data === 'false') {
+                            document.getElementById("judgeUserName").innerHTML = "<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+                                "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户名不存在"+"<br>";
+                        }else {
+                            document.getElementById("judgeUserName").innerHTML = "";
+                        }
+                    },
+                    "text"  // 返回数据的类型
+                );
+            }
         });
     });
 </script>
@@ -144,6 +157,12 @@
                 <canvas id="canvas" width="100" height="43">
                 </canvas>
             </div>
+        </div>
+        <div class="layui-form-item">
+            <span class="filterSpan">自动登录：</span>
+            <input type="checkbox" name="automaticLogon">
+            <span class="filterSpan filterSpanRight">记住用户名和密码：</span>
+            <input type="checkbox" name="rememberInformation">
         </div>
         <div class="layui-form-item">
             <div class="layui-input-block">
