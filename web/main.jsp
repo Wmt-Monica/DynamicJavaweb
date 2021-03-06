@@ -1,4 +1,4 @@
-<%--
+<%@ page import="cn.dreamplume.project.shopping.domain.ShoppingUser" %><%--
   Created by IntelliJ IDEA.
   User: 翊
   Date: 2021/2/18
@@ -31,7 +31,7 @@
         </div>
         <ul class="layui-nav right" lay-filter="">
             <li class="layui-nav-item">
-                <a href="javascript:;">admin</a>
+                <a href="javascript:;"><%= session.getAttribute("userName") %></a>
                 <dl class="layui-nav-child"> <!-- 二级菜单 -->
                     <dd><a onclick="x_admin_show('个人信息','userinfo.html')">个人信息</a></dd>
                     <dd><a href="./login.html">退出</a></dd>

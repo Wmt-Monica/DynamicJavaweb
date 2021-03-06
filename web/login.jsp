@@ -161,8 +161,6 @@
         <div class="layui-form-item">
             <span class="filterSpan">自动登录：</span>
             <input type="checkbox" name="automaticLogon">
-            <span class="filterSpan filterSpanRight">记住用户名和密码：</span>
-            <input type="checkbox" name="rememberInformation">
         </div>
         <div class="layui-form-item">
             <div class="layui-input-block">
