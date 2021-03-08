@@ -9,6 +9,7 @@ import java.lang.reflect.Proxy;
  * @Description TODO
  * @Date 2021/3/7 11:55
  * @Created by 翊
+ * 注意:JDK的Proxy方式实现的动态代理目标对象必须有接口没有接口不能实现jdk版动态代理
  */
 public class ProxyObject {
     public static void main(String[] args) {
@@ -22,7 +23,10 @@ public class ProxyObject {
                 参数三：InvocationHandler 对象
              */
                 Object.class.getClassLoader(),  // 使用被代理对象类的加载器对象
-                new Class[]{ProxyInterface.class},  // 被代理类所要被代理方法对应的接口字节对象数组
+
+//                new Class[]{ProxyInterface.class},  // 被代理类所要被代理方法对应的接口字节对象数组
+                // 也可使用被代理对象的字节对象的 getInterfaces() 方法一次性获取该类的所有实现的接口字节对象数组
+                Object.class.getInterfaces(),
 
                 // InvocationHandler() 对象是 Proxy 代理实例的代理处理接口
                 new InvocationHandler() {  // 通过创建 InvocationHandler 的匿名类实现里面的 invoke() 方法
